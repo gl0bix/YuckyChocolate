@@ -5,10 +5,9 @@ import lombok.Getter;
 
 
 @AllArgsConstructor
-public enum ChocolateBarElement {
+public enum ChocolateElements {
     SOAP("O"),
-    CHOCO("#"),
-    EMPTY("~");
+    CHOCO("#");
 
     @Getter
     private final String value;

@@ -5,8 +5,8 @@ import lombok.*;
 @Data
 public class Bar {
 
-    private final int width;
-    private final int height;
+    private int width;
+    private int height;
 
     @Getter
     private char[][] barGrid;
@@ -18,34 +18,15 @@ public class Bar {
     }
 
     public boolean isOnlySoap(){
-        var result = false;
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if(this.barGrid[i][j] == '#') {
-                    result = false;
-                    break;
-                } else {
-                    result = true;
-                }
-            }
-        }
-        return result;
+        return this.width == 1 && this.height == 1;
     }
 
     public void breakHor(int rows){
-        for (int i = height-1; i > height - 1 - rows; i--){
-            for (int j = 0; j < width; j++) {
-                this.barGrid[i][j] = '~';
-            }
-        }
+        this.height -= rows;
     }
 
     public void breakVer(int cols){
-        for (int i = width-1; i > width - 1 - cols; i--){
-            for (int j = 0; j < height; j++) {
-                this.barGrid[j][i] = '~';
-            }
-        }
+        this.width -= cols;
     }
 
     private void generateBarGrid() {
@@ -58,14 +39,14 @@ public class Bar {
         this.barGrid[0][0] = 'O';
     }
 
-    public void print() {
+    public void printGrid() {
         for (int i = 0; i < height; i++) {
             System.out.print("\n");
             for (int j = 0; j < width; j++) {
                 System.out.print(this.barGrid[i][j]);
             }
         }
-        System.out.print("\n");
+        System.out.println("\n");
     }
 
 }
