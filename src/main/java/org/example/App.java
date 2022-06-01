@@ -5,10 +5,6 @@ import org.example.chocolateBar.ChocolateElements;
 import org.example.gameElements.Game;
 
 import java.util.Scanner;
-
-/**
- * Hello world!
- */
 public class App {
     public static void main(String[] args) {
         System.out.println("*******************************************");
@@ -24,7 +20,7 @@ public class App {
         while (!game.gameOver()) {
             boolean wrongInput = true;
 
-            //choose to break of either horizontally or vertically while checking for remaining width/height
+            // choose to break of either horizontally or vertically while checking for remaining width/height
             System.out.print(game.onTurnPlayer().getName() + ", wollen sie horizontal oder vertikal abbrechen (Eingabe H oder V)? ");
             String breakChoice = "";
             if (game.bar().getHeight() == 1) {
@@ -35,7 +31,7 @@ public class App {
                 breakChoice = "H";
             } else {
                 while (wrongInput) {
-                    breakChoice = scanner.next();
+                    breakChoice = scanner.next().toUpperCase();
                     if (breakChoice.equals("H") || breakChoice.equals("V")) wrongInput = false;
                     else System.out.println("Fehlerhafte Eingabe. Bitte wiederholen: ");
                 }

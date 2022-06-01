@@ -48,5 +48,4 @@ public class Bar {
         }
         System.out.println("\n");
     }
-
 }
