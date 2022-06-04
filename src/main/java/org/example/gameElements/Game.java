@@ -65,7 +65,7 @@ public class Game {
 
         System.out.print("Name für Player 1: ");
         String player1Name = scanner.next();
-        Player player1 = new Player( player1Name);
+        Player player1 = new Player(player1Name);
 
         Player player2 = new Player();
         if (mode2p) {
@@ -74,7 +74,9 @@ public class Game {
 
              player2.setName(player2Name);
         } else {
-            //TODO: init AI player
+            System.out.println("Brace yourself! Ambrosius is playing");
+            player2 = new PlayerAmbrosius();
+            player2.setName("Ambrosius");
         }
 
         return new GameBuilder()
