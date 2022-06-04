@@ -12,13 +12,28 @@ public class App {
         System.out.println("*******************************************");
 
         Scanner scanner = new Scanner(System.in);
+        boolean wrongInput = true;
         Game game = Game.init();
         System.out.println("Initialized new Game");
         game.bar().printGrid();
         game.onTurnPlayer(game.player1());
 
+        System.out.println("Wer soll anfangen (" + game.player1().getName() + " oder " + game.player2().getName() + ")?");
+        while (wrongInput) {
+            final var beginnerPlayer = scanner.next();
+            if (beginnerPlayer.equals(game.player1().getName())) {
+                game.onTurnPlayer(game.player1());
+                wrongInput = false;
+            }
+            else if (beginnerPlayer.equals(game.player1().getName())) {
+                game.onTurnPlayer(game.player1());
+                wrongInput = false;
+            } else System.out.println("Fehlerhafte Eingabe. Bitte wiederholen: ");
+        }
+
+
         while (!game.gameOver()) {
-            boolean wrongInput = true;
+            wrongInput = true;
 
             // choose to break of either horizontally or vertically while checking for remaining width/height
             System.out.print(game.onTurnPlayer().getName() + ", wollen sie horizontal oder vertikal abbrechen (Eingabe H oder V)? ");
@@ -63,7 +78,6 @@ public class App {
         System.out.println("Game over!");
         game.toggleOnTurnPlayer(); //toggle again, to get player who broke the last possible piece
         System.out.println(game.onTurnPlayer().getName() + " gewinnt");
-
 
     }
 }
