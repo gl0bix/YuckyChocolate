@@ -6,9 +6,9 @@ import org.example.gameElements.PlayerAmbrosius;
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
-        System.out.println("*******************************************");
-        System.out.println("*** Welcome to the Yucky Chocolate Game ***");
-        System.out.println("*******************************************");
+        System.out.println("***********************************************");
+        System.out.println("*** Willkommen zum Seifen-Schokoladen-Spiel ***");
+        System.out.println("***********************************************");
 
         Scanner scanner = new Scanner(System.in);
         boolean wrongInput = true;

@@ -63,18 +63,18 @@ public class Game {
 
         var bar = new Bar(cols, rows);
 
-        System.out.print("Name für Player 1: ");
+        System.out.print("Name für Spieler 1: ");
         String player1Name = scanner.next();
         Player player1 = new Player(player1Name);
 
         Player player2 = new Player();
         if (mode2p) {
-            System.out.print("Name für Player 2: ");
+            System.out.print("Name für Spieler 2: ");
             String player2Name = scanner.next();
 
              player2.setName(player2Name);
         } else {
-            System.out.println("Brace yourself! Ambrosius is playing");
+            System.out.println("Sei gewappnet! Ambrosius wird spielen.");
             player2 = new PlayerAmbrosius();
             player2.setName("Ambrosius");
         }
