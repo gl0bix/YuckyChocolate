@@ -1,6 +1,9 @@
 package org.example.chocolateBar;
 
-import lombok.*;
+import lombok.Data;
+import lombok.Getter;
+
+import java.util.Objects;
 
 @Data
 public class Bar {
@@ -11,23 +14,21 @@ public class Bar {
     @Getter
     private char[][] barGrid;
 
-    public Bar(int _width, int height){
+    public Bar(int _width, int height) {
         this.width = _width;
         this.height = height;
         generateBarGrid();
     }
 
-    public boolean isOnlySoap(){
+    public boolean isOnlySoap() {
         return this.width == 1 && this.height == 1;
     }
 
-    public void breakHor(int rows){
-        this.height -= rows;
+    public void breakBar(String dir, int count) {
+        if (Objects.equals(dir, "H")) this.height -= count;
+        else this.width -= count;
     }
 
-    public void breakVer(int cols){
-        this.width -= cols;
-    }
 
     private void generateBarGrid() {
         this.barGrid = new char[this.height][this.width];
@@ -46,6 +47,9 @@ public class Bar {
                 System.out.print(this.barGrid[i][j]);
             }
         }
+        System.out.println("\n");
+        System.out.println("Höhe: " + height);
+        System.out.println("Breite: " + width);
         System.out.println("\n");
     }
 }
